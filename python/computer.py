@@ -8,6 +8,7 @@ from abc import ABC, abstractmethod
 
 from brands import Brand
 from facade import ComputerFacade
+from proxy import SearchService
 
 class Computer:
     """
@@ -15,13 +16,14 @@ class Computer:
     And control is the only reason why Computer would change.
     """
 
-    def __init__(self, input_device: InputDevice, processor: Processor, memory: Memory, output_device: OutputDevice,brand:Brand,movie:ComputerFacade):
+    def __init__(self, input_device: InputDevice, processor: Processor, memory: Memory, output_device: OutputDevice,brand:Brand,movie:ComputerFacade,search_service:SearchService):
         self._input_device = input_device
         self._processor = processor
         self._memory = memory
         self._output_device = output_device
         self._brand = brand
         self._movie = movie
+        self.search_service = search_service
 
 
     @abstractmethod
